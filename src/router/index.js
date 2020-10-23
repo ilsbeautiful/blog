@@ -7,37 +7,36 @@ import Profile from '@/views/profile/Profile'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '',
-    redirect: '/home'
-  },
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/category',
-    name: 'Category',
-    component: Category
-  },
-  {
-    path: '/cart',
-    name: 'Cart',
-    component: Cart
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: Profile
-  }
+const routes = [{
+        path: '',
+        redirect: '/home'
+    },
+    {
+        path: '/home',
+        name: 'Home',
+        component: Home
+    },
+    {
+        path: '/category',
+        name: 'Category',
+        component: Category
+    },
+    {
+        path: '/cart',
+        name: 'Cart',
+        component: Cart
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
+    }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 })
 
 export default router

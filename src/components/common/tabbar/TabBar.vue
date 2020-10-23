@@ -14,7 +14,7 @@ export default {
   #tab-bar {
     display: flex;
     justify-content: space-around;
-    background-color: #f6f6f6;
+    background-color: #f6f6f60f;
     position: fixed;
     left: 0;
     right: 0;

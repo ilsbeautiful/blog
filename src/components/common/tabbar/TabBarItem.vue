@@ -39,6 +39,8 @@ export default {
     height: 49px;
     flex: 1;
     font-size: 14px;
+    font-weight: bold;
+    color: #424040;
     text-align: center;
   }
   
