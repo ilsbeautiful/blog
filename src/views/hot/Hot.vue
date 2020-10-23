@@ -1,19 +1,22 @@
 <template>
-  <div id="profile">
-    <h2>个人</h2>
+  <div id="hot">
+    <NavBars/>
   </div>
 </template>
+
 <script>
+import NavBars from '@/components/content/navbars/NavBars'
+
 export default {
-  name: "Profile",
-  data () {
-   return {}
-  },
-   methods:{}
+  name: 'Hot',
+  components: {
+      NavBars
+    }
 }
 </script>
+
 <style scoped>
-  #profile {
+  #hot {
     height: 100vh;
     position: relative;
     background-image: url(~assets/img/home/mtimg.jpg);

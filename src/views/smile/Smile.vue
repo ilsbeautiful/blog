@@ -1,19 +1,22 @@
 <template>
-  <div id="cart">
-    <h2>购物车</h2>
+  <div id="smile">
+    <NavBars/>
   </div>
 </template>
+
 <script>
+import NavBars from '@/components/content/navbars/NavBars'
+
 export default {
-  name: "Cart",
-  data () {
-   return {}
-  },
-   methods:{}
+  name: "Smile",
+  components: {
+      NavBars
+    }
 }
 </script>
+
 <style scoped>
-  #cart {
+  #smile {
     height: 100vh;
     position: relative;
     background-image: url(~assets/img/home/mtimg.jpg);

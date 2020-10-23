@@ -1,37 +1,26 @@
 <template>
-  <div id="home" class="wrapper">
-    <nav-bar><div slot="center">博客</div></nav-bar>
+  <div id="home">
+    <NavBars/>
   </div>
 </template>
 
 <script>
-  import NavBar from '@/components/common/navbar/NavBar'
+  import NavBars from '@/components/content/navbars/NavBars'
 
   export default {
     name: 'Home',
     components: {
-      NavBar
+      NavBars
     }
   } 
 </script>
 <style >
- #home {
+  #home {
     /*padding-top: 44px;*/
     height: 100vh;
     position: relative;
-    background-image: url(~assets/img/home/mtimg.jpg);
-    background-size: 100%;
-  }
-
-  .home-nav {
-    background-color: var(--color-tint);
-    color: #fff;
-
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 9;
+    background-image: url(~assets/img/home/bgi.jpg);
+    background-size: 100% 100%;
   }
 
   .tab-control {
@@ -39,7 +28,7 @@
     top: 44px;
     z-index: 9;
   }
-
+  
   .content {
     overflow: hidden;
     font-weight: bold;

@@ -1,24 +1,20 @@
 <template>
-      <tab-bar>
-      <tab-bar-item path='/home' activeColor="#ff0e0e">
-        <img slot="item-icon" src="~assets/img/tabbar/home.svg" alt="">
-        <img slot="item-icon-active" src="~assets/img/tabbar/home_active.svg" alt="">
-        <div slot="item-text">首页</div>
+    <tab-bar>
+      <tab-bar-item path='/hot' activeColor="#00b8ffe6">
+        <img slot="item-icon" src="~assets/img/tabbar/hot-fill.svg" alt="">
+        <img slot="item-icon-active" src="~assets/img/tabbar/hot-fill_active.svg" alt="">
+        <div slot="item-text">Hot</div>
       </tab-bar-item>
-      <tab-bar-item path='/category' activeColor="#ff0e0e">
-        <img slot="item-icon" src="~assets/img/tabbar/category.svg" alt="">
-        <img slot="item-icon-active" src="~assets/img/tabbar/category_active.svg" alt="">
-        <div slot="item-text">分类</div>
+      <tab-bar-item path='/home' activeColor="#00b8ffe6">
+        <img slot="item-icon" src="~assets/img/tabbar/all-fill.svg" alt="">
+        <img slot="item-icon-active" src="~assets/img/tabbar/all-fill_active.svg" alt="">
+        <div slot="item-text">Home</div>
       </tab-bar-item>
-      <tab-bar-item path='/cart' activeColor="#ff0e0e">
-        <img slot="item-icon" src="~assets/img/tabbar/shopcart.svg" alt="">
-        <img slot="item-icon-active" src="~assets/img/tabbar/shopcart_active.svg" alt="">
-        <div slot="item-text">购物车</div>
-      </tab-bar-item>
-      <tab-bar-item path='/profile' activeColor="#ff0e0e">
-        <img slot="item-icon" src="~assets/img/tabbar/profile.svg" alt="">
-        <img slot="item-icon-active" src="~assets/img/tabbar/profile_active.svg" alt="">
-        <div slot="item-text">我的</div>
+     
+      <tab-bar-item path='/smile' activeColor="#00b8ffe6">
+        <img slot="item-icon" src="~assets/img/tabbar/smile.svg" alt="">
+        <img slot="item-icon-active" src="~assets/img/tabbar/smile_active.svg" alt="">
+        <div slot="item-text">Smile</div>
       </tab-bar-item>
     </tab-bar>
 </template>

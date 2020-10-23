@@ -40,7 +40,8 @@ export default {
     flex: 1;
     font-size: 14px;
     font-weight: bold;
-    color: #424040;
+    /* color: #56f4c98f; */
+    color: #ff00bca8;
     text-align: center;
   }
   
