@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="profile">
     <h2>个人</h2>
   </div>
 </template>
@@ -13,4 +13,10 @@ export default {
 }
 </script>
 <style scoped>
+  #profile {
+    height: 100vh;
+    position: relative;
+    background-image: url(~assets/img/home/mtimg.jpg);
+    background-size: 100%;
+  }
 </style>

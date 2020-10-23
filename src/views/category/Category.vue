@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="category">
     <h2>分类</h2>
   </div>
 </template>
@@ -13,4 +13,10 @@ export default {
 }
 </script>
 <style scoped>
+  #category {
+    height: 100vh;
+    position: relative;
+    background-image: url(~assets/img/home/mtimg.jpg);
+    background-size: 100%;
+  }
 </style>
