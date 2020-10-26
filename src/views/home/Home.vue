@@ -1,16 +1,22 @@
 <template>
   <div id="home">
     <NavBars/>
+    <contlist/>
+    <GoodList/>
   </div>
 </template>
 
 <script>
   import NavBars from '@/components/content/navbars/NavBars'
+  import contlist from '@/components/content/contentlist/ContList'
+  import GoodList from '@/components/content/goods/GoodsList'
 
   export default {
     name: 'Home',
     components: {
-      NavBars
+      NavBars,
+      contlist,
+      GoodList
     }
   } 
 </script>
@@ -19,8 +25,7 @@
     /*padding-top: 44px;*/
     height: 100vh;
     position: relative;
-    background-image: url(~assets/img/home/bgi.jpg);
-    background-size: 100% 100%;
+    
   }
 
   .tab-control {
