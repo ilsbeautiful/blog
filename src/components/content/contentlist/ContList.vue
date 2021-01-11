@@ -1,6 +1,6 @@
 <template>
   <div class="cont">
-      <cont-list-item>123</cont-list-item>
+      <cont-list-item></cont-list-item>
   </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
     components: {
       ContListItem
     },
+    
+    methods : {
+
+    }
 }
 </script>
 

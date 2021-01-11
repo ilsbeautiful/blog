@@ -28,12 +28,14 @@ body {
     background: var(--color-background);
     color: var(--color-text);
     /* rem vw/vh */
-    width: 100vw;
-    background-image: url(~assets/img/home/bgi.jpg);
+    /* width: 100vw; */
+    background-image: url(~assets/img/home/bgci.jpg);
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
-
+ul {
+    list-style: none;
+}
 a {
     color: var(--color-text);
     text-decoration: none;

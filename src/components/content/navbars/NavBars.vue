@@ -1,42 +1,63 @@
 <template>
-  <div>
-    <nav-bar class="home-nav">
-      <img src="@/assets/img/home/favorites-fill.svg" alt="" slot="left">
-      <img src="@/assets/img/home/favorites-fill.svg" alt="" slot="right">
-      <input type="text" slot="center" class="search">
-      <ul class="navcoll">
-        <li class="naa"
-            v-for="(item,index) in navArray" 
-            :key="index"
-            @click="leftIndex(index)"
-            :class="{'navactive':active==index}">{{index}}-{{item.message}}
-        </li>
-      </ul>
-    </nav-bar>  
-  </div>
+  <Header class="home-nav">
+    <ul class="navcoll" slot="right">
+      <li class="naa"
+          v-for="(item,index) in LinkList" 
+          :key="index"
+          @click="ClickIndex(item.path)"
+          :class="{'navactive':active==index}"
+          ref="tag">
+          <i :class="item.class"></i>
+          {{item.name}}
+      </li>
+    </ul>
+  </Header>
 </template>
 
 <script>
-  import NavBar from '@/components/common/navbar/NavBar'
+  import Header from '@/components/common/header/Header'
 
   export default {
     name: 'navbars',
     components: {
-      NavBar
+      Header
     },
     data() {
       return {
         active:-1,
-        navArray: [
-          { message: 'go' },
-          { message: 'gogo' },
-          { message: 'gogo' }
+        LinkList:[
+          {name:"首页",path:'/',class:'el-icon-s-home'},
+          {name:"文章",path:'/article',class:'el-icon-tickets'},
+          {name:"云相册",path:'/photo',class:'el-icon-picture'},
+          {name:"留言板",path:'/message',class:'el-icon-edit-outline'},
+          {name:"GitHub",path:'https://github.com/',class:'el-icon-share'},
+          {name:"登陆 / 注册",path:'/signin',class:'el-icon-s-custom'}
         ]
       }
     },
+    props: {
+      path: String,
+    },
+    mounted() {
+      // const name = this.$store.state.info.name;
+      const name = localStorage.getItem('name');
+      if(localStorage.getItem('token')) {
+        this.$refs.tag[this.$refs.tag.length-1].innerHTML = name
+      } else {
+        console.log("don't login");
+      }
+    },
     methods: {
-     leftIndex(index) {
-        this.active = index;
+      ClickIndex(path) {
+        if(path == '/signin') {
+            if(localStorage.getItem('token')) {
+              this.$router.push('/logined')
+              return
+            }
+          } else if(path == 'https://github.com/') {
+            return window.open(path)
+          }
+        this.$router.replace(path)
       }
     },
     computed: {
@@ -52,35 +73,26 @@
 
 <style>
   .home-nav {
-    background-color: #00000042;
+    background-color: #000000e8;
     position: fixed;
+    height: 49px;
     left: 0;
     right: 0;
     top: 0;
     z-index: 9;
   }
-
-  .search {
-    outline: none;
-    padding: 2px 10px;
-    width: 100%;
-    border: none;
-    border-radius: 50px;
-    background-color: #ffffffa3;
-  }
-  
-  .left, .right {
-    width: 40px;
-    height: 40px;
+  .navcoll {
+    display: flex;
+    justify-content: space-around;
+    line-height: 49px;
   }
 
-  .navactive {
-    background-color: #3d7b7d99;
-    color: #8bb6dce6;
-  }
-  
   .naa {
-    color: #000;
-
+    color: #dedede;
+    font-size: 15px;
+    margin: 0px 40px;
+  }
+  .navactive {
+    background-color: yellow;
   }
 </style>

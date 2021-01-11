@@ -1,5 +1,5 @@
 <template>
-  <div id="hot">
+  <div id="Photo">
     <NavBars/>
   </div>
 </template>
@@ -8,7 +8,7 @@
 import NavBars from '@/components/content/navbars/NavBars'
 
 export default {
-  name: 'Hot',
+  name: "Photo",
   components: {
       NavBars
     }
@@ -16,10 +16,10 @@ export default {
 </script>
 
 <style scoped>
-  #hot {
+  #Photo {
     height: 100vh;
     position: relative;
-    background-image: url(~assets/img/home/mtimg.jpg);
+    /* background-image: url(~assets/img/home/mtimg.jpg); */
     background-size: 100%;
   }
 </style>

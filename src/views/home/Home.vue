@@ -1,39 +1,48 @@
 <template>
-  <div id="home">
+  <div id="Home">
     <NavBars/>
-    <contlist/>
-    <GoodList/>
+    <!-- <Article :article="Article"/> -->
+
   </div>
 </template>
 
 <script>
   import NavBars from '@/components/content/navbars/NavBars'
-  import contlist from '@/components/content/contentlist/ContList'
-  import GoodList from '@/components/content/goods/GoodsList'
+  // import Article from '@/components/content/Article/Article'
+  // import { getdata } from "network/home"
+
 
   export default {
     name: 'Home',
     components: {
       NavBars,
-      contlist,
-      GoodList
+      // Article,
+    },
+    data() {
+      return {
+        // Article: []
+      }
+    },
+    created() {
+      // this.getdata()
+    },
+    methods: {
+      // getdata() {
+      //   getdata().then(res => {
+      //     // console.log(res)
+      //     this.Article = res.data.data
+      //   })
+      // }
     }
-  } 
+  }
 </script>
-<style >
-  #home {
+<style  scoped>
+  #Home {
     /*padding-top: 44px;*/
-    height: 100vh;
+    /* height: 100vh; */
     position: relative;
-    
   }
 
-  .tab-control {
-    position: sticky;
-    top: 44px;
-    z-index: 9;
-  }
-  
   .content {
     overflow: hidden;
     font-weight: bold;
