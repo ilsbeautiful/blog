@@ -1,9 +1,9 @@
 <template>
-  <ArticleTag class="article-list" >
-    <div slot="title">
+  <ArticleTag class="article-list">
+    <!-- <div slot="title">
         <i class="el-icon-document"></i>
         <h4>文章列表</h4>
-    </div>
+    </div> -->
     <div slot="detail">
       <ArticleListItem v-for="(item,index) in articleitem" :articleitem="item" :key="index"/>
     </div>
@@ -43,11 +43,16 @@ import ArticleListItem from './ArticleListItem'
 
 <style scoped>
   .article-list {
+    
+    /* border: 1px solid #ccc; */
+    width: 68rem;
     position: relative;
-    left: 10%;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    overflow: hidden;
-    width: 50%;
+    left: 8rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .article-list {
+      width: 80%;
+    }
   }
 </style>

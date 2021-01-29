@@ -1,56 +1,36 @@
 <template>
   <div id="Home">
     <NavBars/>
-    <!-- <Article :article="Article"/> -->
+    <!-- <ContList class="box animate__animated animate__bounceInDown"/> -->
+    <ContList class="animation"/>
 
   </div>
 </template>
 
 <script>
   import NavBars from '@/components/content/navbars/NavBars'
-  // import Article from '@/components/content/Article/Article'
-  // import { getdata } from "network/home"
-
+  import ContList from '@/components/content/contentlist/ContList'
 
   export default {
     name: 'Home',
     components: {
       NavBars,
-      // Article,
+      ContList
     },
     data() {
       return {
-        // Article: []
       }
     },
     created() {
-      // this.getdata()
     },
     methods: {
-      // getdata() {
-      //   getdata().then(res => {
-      //     // console.log(res)
-      //     this.Article = res.data.data
-      //   })
-      // }
     }
   }
 </script>
-<style  scoped>
+<style scoped>
   #Home {
-    /*padding-top: 44px;*/
-    /* height: 100vh; */
-    position: relative;
+    /* position: relative; */
   }
 
-  .content {
-    overflow: hidden;
-    font-weight: bold;
-    color: #d58cecd4;
-    position: absolute;
-    top: 44px;
-    bottom: 49px;
-    left: 0;
-    right: 0;
-  }
+ 
 </style>

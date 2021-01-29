@@ -7,7 +7,7 @@
       </div>
       <div slot="detail" class="detail">
         <p>听音乐~</p>
-        <video id="video" src="~/assets/music/thz.mp3" controls="controls"  loop="loop"> </video>
+        <!-- <video id="video" src="~/assets/music/thz.mp3" controls="controls"  loop="loop"> </video> -->
       </div>
     </ArticleTag>
   </div>
@@ -25,5 +25,7 @@ export default {
 </script>
 
 <style scoped>
-
+  video {
+    width: 100%;
+  }
 </style>

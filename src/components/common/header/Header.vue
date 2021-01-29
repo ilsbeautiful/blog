@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar">
     <div class="left"><slot name="left"></slot></div>
-    <div class="right"  @click="shownav"><slot name="right"></slot></div>
+    <div class="right" @click="shownav"><slot name="right"></slot></div>
     
     <!-- <div class="navbar-collapse" v-show="navbarcoll"><slot></slot></div> -->
   </div>

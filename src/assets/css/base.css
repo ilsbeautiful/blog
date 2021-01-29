@@ -29,10 +29,11 @@ body {
     color: var(--color-text);
     /* rem vw/vh */
     /* width: 100vw; */
-    background-image: url(~assets/img/home/bgci.jpg);
-    background-attachment: fixed;
-    background-size: 100% 100%;
+    /* background-image: url(~assets/img/home/bgci.jpg); */
+    /* background-attachment: fixed; */
+    /* background-size: 100% 100%; */
 }
+
 ul {
     list-style: none;
 }
@@ -60,4 +61,13 @@ a {
 
 .right {
     float: right;
+}
+
+.animation {
+    animation: animate 1s;
+}
+
+@keyframes animate {
+    0% { opacity: 0; transform: translateY(-50px);}
+    100% { opacity: 1; transform: translateY(0);}
 }

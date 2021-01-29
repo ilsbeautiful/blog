@@ -1,98 +1,98 @@
 <template>
-  <Header class="home-nav">
-    <ul class="navcoll" slot="right">
-      <li class="naa"
-          v-for="(item,index) in LinkList" 
-          :key="index"
-          @click="ClickIndex(item.path)"
-          :class="{'navactive':active==index}"
-          ref="tag">
-          <i :class="item.class"></i>
-          {{item.name}}
-      </li>
-    </ul>
-  </Header>
+  <div class="NavBar">
+    <div class="navcoll  hidden-md-and-down">
+      <NavBarsItem path="/home">
+        <div slot="item-icon" class="el-icon-s-home"></div>
+        <div slot="item-text">首页</div>
+      </NavBarsItem>
+      <NavBarsItem path="/article">
+        <div slot="item-icon" class="el-icon-tickets"></div>
+        <div slot="item-text">文章</div>
+      </NavBarsItem>
+      <NavBarsItem path="/photo">
+        <div slot="item-icon" class="el-icon-picture"></div>
+        <div slot="item-text">云相册</div>
+      </NavBarsItem>
+      <NavBarsItem path="/message">
+        <div slot="item-icon" class="el-icon-edit-outline"></div>
+        <div slot="item-text">留言板</div>
+      </NavBarsItem>
+      <NavBarsItem @click.native="Gogithub">
+        <div slot="item-icon" class="el-icon-share"></div>
+        <div slot="item-text">GitHub</div>
+      </NavBarsItem>
+      <NavBarsItem @click.native="Clicks">
+        <div slot="item-icon" class="el-icon-s-custom"></div>
+        <div slot="item-text" ref="tag">登陆 / 注册</div>
+      </NavBarsItem>
+    </div>
+    <MNavBars/>
+  </div>
 </template>
 
 <script>
-  import Header from '@/components/common/header/Header'
+  import NavBarsItem from '@/components/content/navbars/NavBarsItem'
+  import MNavBars from '@/components/content/navbars/mNavBars'
 
   export default {
     name: 'navbars',
     components: {
-      Header
+      NavBarsItem,
+      MNavBars
     },
     data() {
       return {
-        active:-1,
-        LinkList:[
-          {name:"首页",path:'/',class:'el-icon-s-home'},
-          {name:"文章",path:'/article',class:'el-icon-tickets'},
-          {name:"云相册",path:'/photo',class:'el-icon-picture'},
-          {name:"留言板",path:'/message',class:'el-icon-edit-outline'},
-          {name:"GitHub",path:'https://github.com/',class:'el-icon-share'},
-          {name:"登陆 / 注册",path:'/signin',class:'el-icon-s-custom'}
-        ]
       }
     },
     props: {
-      path: String,
     },
     mounted() {
-      // const name = this.$store.state.info.name;
       const name = localStorage.getItem('name');
       if(localStorage.getItem('token')) {
-        this.$refs.tag[this.$refs.tag.length-1].innerHTML = name
-      } else {
-        console.log("don't login");
+        this.$refs.tag.innerHTML = name
       }
     },
     methods: {
-      ClickIndex(path) {
-        if(path == '/signin') {
-            if(localStorage.getItem('token')) {
-              this.$router.push('/logined')
-              return
-            }
-          } else if(path == 'https://github.com/') {
-            return window.open(path)
-          }
-        this.$router.replace(path)
+      Clicks() {
+        if(localStorage.getItem('token')) {
+          this.$router.push('/logined')
+        } else {
+          this.$router.push('/signin')
+        }
+      },
+      Gogithub() {
+        window.open('https://github.com/')
       }
     },
     computed: {
-      // isActive() {
-      //   return this.includes(this.path)
-      // },
-      // ColorisActive() {
-      //   return this.isActive ? {color: this.navcollactive} : {}
-      // }
+      
     }
   }
 </script>
 
-<style>
-  .home-nav {
-    background-color: #000000e8;
+<style scoped>
+  .NavBar {
+    /* background-color: #000000f2; */
+    background: rgba(40, 42, 44, 0.6);
     position: fixed;
-    height: 49px;
+    height: 45px;
     left: 0;
     right: 0;
     top: 0;
     z-index: 9;
+    display: flex;
+    justify-content: flex-end;
   }
   .navcoll {
     display: flex;
     justify-content: space-around;
     line-height: 49px;
+    position: relative;
+    width: 45%;
+    right: 200px;
+    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-around;
   }
-
-  .naa {
-    color: #dedede;
-    font-size: 15px;
-    margin: 0px 40px;
-  }
-  .navactive {
-    background-color: yellow;
-  }
+  
 </style>

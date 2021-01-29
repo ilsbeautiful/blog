@@ -1,37 +1,38 @@
 <template>
   <div class="MsgBoard">
-    <el-row>
-      <el-col :span="12" :offset="5"  v-for="(item,index) in data" :key="index">
-        <div class="msgss">
-          <div class="qweqwe">
-            <h2 class="name">{{item.name}}</h2>
-            <span>{{dayjs(item.date).format('YYYY-MM-DD HH:mm:ss')}}</span>
-          </div>
-            <p>{{item.content}}</p>
+    <div class="messages" v-for="(item,index) in user" :key="index">
+      <div class="msgtitle">
+        <div style="display:flex">
+          <img :src="item.imgsrc" alt="">
+          <h2 class="name">{{item.name}}</h2>
         </div>
-      </el-col>
-    </el-row>
+        <span class="time">{{dayjs(item.date).format('YYYY-MM-DD HH:mm:ss')}}</span>
+      </div>
+      <p>{{item.content}}</p>
+    </div>
   </div>
 </template>
 
 <script>
-import { getmessage, message } from 'network/home'
+import { getmessage, message, getuser} from 'network/home'
 export default {
   name: 'MsgBoard',
   data() {
     return {
-      data: {
-        name: '',
-        content: '',
-        date: ''
-      }
+    }
+  },
+  props:{
+    user:{
+      type:[Object,Array],
+      default:''
+    },
+    url: {
+      type: String,
+      default: ''
     }
   },
   mounted() {
-    getmessage().then(res => {
-      this.data = res.data.data
-      // console.log(this.data );
-    })
+    // console.log(this.url);
   }
 }
 </script>
@@ -40,30 +41,49 @@ export default {
   .MsgBoard {
     position: relative;
     display: flex;
-    top: 100px;
-    color: #fff;
-  }
-  .el-row {
+    top: 125px;
+    color: #333;
     width: 100%;
-    
-  }
-  .msgss {
-    padding: 5px 10px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-  .msgss p {
-    font-size: 16px;
-    color: #fff;
+    flex-direction: column;
+    align-items: center;
   }
   
-  .name {
-    color:#69de82;
-    margin: 0 0 5px 0;
-  }
-  .qweqwe {
+  .messages {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0px 35px 0px 35px; 
+    height: 80px;
+    width: 80%;
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .messages {
+      width: 100%;
+    }
+  }
+
+  p {
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .msgtitle {
+    width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
   }
+  .msgtitle img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  .name {
+    color:#be02ecd1;
+    margin: 0 0 5px 0;
+  }
+  
 </style>

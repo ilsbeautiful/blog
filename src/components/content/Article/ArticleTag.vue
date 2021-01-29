@@ -13,15 +13,12 @@ export default {
 
 <style scoped>
   .articletag {
-    position: relative;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    width: 40%;
-    left: 30%;
-    background-color: #fff;
+    border-radius: 5px;
+    /* overflow: hidden; */
+    /* background-color: #fff; */
     margin-bottom: 40px;
   }
-  .title {
+  /* .title {
     display: flex;
     position: relative;
     color: #333;
@@ -29,10 +26,10 @@ export default {
     height: 48px;
     line-height: 23px;
     padding: 10px 15px;
-    background: #ffff;
+    background: #fff;
     font-family: "微软雅黑";
     border-bottom: 3px solid #799eb7;
-  }
+  } */
   .title div {
     display: flex;
     width: 100%;

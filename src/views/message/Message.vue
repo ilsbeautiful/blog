@@ -1,24 +1,62 @@
 <template>
-  <div id="Message">
+  <div id="Message" >
     <NavBars/>
-    <Messagebox/>
-    <MsgBoard/>
+    <div class="animation">
+      <MessageBox :url='url'/>
+      <MsgBoard :user='data' :url='url'/>
+    </div>
+    <BackTop/>
   </div>
 </template>
 
 <script>
-  import NavBars from '@/components/content/navbars/NavBars'
-  import Messagebox from '@/views/message/childcomps/MessageBox'
-  import MsgBoard from '@/views/message/childcomps/MsgBoard'
+import NavBars from '@/components/content/navbars/NavBars'
+import MessageBox from '@/views/message/childcomps/MessageBox'
+import MsgBoard from '@/views/message/childcomps/MsgBoard'
+import BackTop from '@/components/content/backTop/BackTop'
 
-  export default {
-    name: "Message",
-    components: {
-      NavBars,
-      Messagebox,
-      MsgBoard
+import { getmessage, message, getuser} from 'network/home'
+
+export default {
+  name: "Message",
+  data() {
+    return {
+      data: {
+        name: '',
+        content: '',
+        date: '',
+        token:'',
+        imgsrc: ''
+      },
+      url: ''
+    }
+  },
+  components: {
+    NavBars,
+    MessageBox,
+    MsgBoard,
+    BackTop
+  },
+  created() {
+    
+  },
+  mounted() {
+    this.getinfo()
+  },
+  methods: {
+    getinfo() {
+      this.data.token = localStorage.getItem('token')
+      getuser(this.data).then(res => {
+        this.url = res.data.data[0].url
+        // console.log(this.url);
+      })
+      getmessage().then(res => {
+        this.data = res.data.data
+        // console.log(this.data );
+      })
     }
   }
+}
 </script>
 
 <style scoped>

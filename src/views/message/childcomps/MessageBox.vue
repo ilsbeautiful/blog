@@ -1,7 +1,7 @@
 <template>
   <div >
     <h2>可以在这里输入留言~!!!</h2>
-    <div class="MessageBox">
+    <div class="MessageBox inputs">
       <el-input
         class="textarea"
         type="textarea"
@@ -32,23 +32,34 @@ export default {
       data: {
         name: '',
         textarea: '',
-        date: ''
+        date: '',
+        token: '',
+        imgsrc: ''
       }
+    }
+  },
+  props: {
+    url: {
+      type: String,
+      default: ''
     }
   },
   methods: {
     submsg() {
       if(localStorage.getItem('token')) {
+        this.data.token = localStorage.getItem('token')
+        this.data.imgsrc = this.url
         this.data.name = localStorage.getItem('name')
         this.data.date = this.dayjs().format('YYYY-MM-DD HH:mm:ss')
         message(this.data).then(res => {
           // console.log(res);
+          this.$message.success('okkk~~')
           setTimeout(() => {
             location.reload()
           }, 1000);
         })
       } else {
-        alert('请先登录！')
+        this.$message.error('请先登录！')
       }
     }
   }
@@ -64,11 +75,6 @@ export default {
     font-size: 30px;
     margin: 10px;
   }
-  .textarea >>> .el-textarea__inner{
-    font-family:"Microsoft" !important;
-    font-size:18px !important;
-    padding: 13px 10px 10px 10px;
-  }
   
   .MessageBox {
     position: relative;
@@ -76,7 +82,23 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 1000px;
+    width: 80%;
     margin: auto;
+    padding: 0 15px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .MessageBox {
+      width: 100%;
+    }
+  }
+
+  .textarea >>> .el-textarea__inner{
+    font-family:"Microsoft" !important;
+    font-size:18px !important;
+    padding: 13px 10px 10px 10px;
+  }
+  .inputs >>> .el-textarea {
+    /* padding-left: 10px; */
   }
 </style>

@@ -6,6 +6,34 @@ export function getdata() {
   })
 }
 
+//getmusic
+export function getmusics(id) {
+  return request({
+    url: '/getmusic',
+    method: 'get',
+    params: {
+      id
+    }
+  })
+}
+
+//查询likeme
+export function getlikeme() {
+  return request({
+    url: '/getlikeme'
+  })
+}
+
+export function likeme(like_num) {
+  return request({
+    url: '/likeme',
+    method: 'get',
+    params: {
+      like_num
+    }
+  })
+}
+
 //注册signup
 export function signup(data) {
   return request({
@@ -18,6 +46,14 @@ export function signup(data) {
 export function signin(data) {
   return request({
     url: '/signin',
+    data:data
+  })
+}
+
+//getuser
+export function getuser(data) {
+  return request({
+    url: '/getuser',
     data:data
   })
 }
@@ -49,6 +85,27 @@ export function message(data) {
     data:data
   })
 }
+//getdetail
+export function getDetail(iid) {
+  return request({
+    url: '/detail',
+    params: {
+      iid
+    },
+    method: 'get'
+  })
+}
+
+//insimg
+export function insimg(data) {
+  return request({
+    url: '/insimg',
+    data: data
+  })
+}
+
+
+
 
 // Mock.mock('/home/test', 'get', data)
 // Mock.setup({

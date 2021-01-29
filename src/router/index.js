@@ -8,6 +8,7 @@ import Message from '@/views/message/Message'
 import Signin from '@/views/login/Signin'
 import Logined from '@/views/login/Logined'
 import Signup from '@/views/login/Signup'
+import ArticleDetail from '@/views/detail/Detail'
 
 Vue.use(VueRouter)
 
@@ -60,9 +61,13 @@ const routes = [{
       component: Signup
     },
     {
-        path: '/logined',
-        name: 'Logined',
-        component: Logined
+      path: '/logined',
+      name: 'Logined',
+      component: Logined
+    },
+    {
+        path: '/detail/:iid',
+        component: ArticleDetail
     }
 ]
 
